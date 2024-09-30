@@ -13,11 +13,15 @@ let package = Package(
       targets: ["NavigationBackport"]
     ),
   ],
-  dependencies: [],
+  dependencies: [
+    .package(url: "https://github.com/pointfreeco/swift-perception", branch: "main")
+  ],
   targets: [
     .target(
       name: "NavigationBackport",
-      dependencies: []
+      dependencies: [
+        .product(name: "Perception", package: "swift-perception")
+      ]
     ),
     .testTarget(
       name: "NavigationBackportTests",
